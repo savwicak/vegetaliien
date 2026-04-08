@@ -10,6 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://dintogilorvpb" path="res://scenes/level/pool.tscn" id="5_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://clhmrpo0yg23" path="res://scenes/alien/mashdoom.tscn" id="5_tbgi4"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_85g3d"]
+radius = 320.00626
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_choun"]
+size = Vector2(340, 248)
+
 [node name="Main" type="Node2D" unique_id=886762236]
 
 [node name="MapHutan" type="Sprite2D" parent="." unique_id=11637955]
@@ -102,6 +108,12 @@ scale = Vector2(0.8000012, 0.8000012)
 [node name="pool" parent="MapHutan/tree and pool2" unique_id=2020701019 instance=ExtResource("5_a8y0u")]
 position = Vector2(3192, 2651)
 
+[node name="ufo" type="StaticBody2D" parent="MapHutan" unique_id=1669205480]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapHutan/ufo" unique_id=1962266839]
+position = Vector2(-1326, -1057)
+shape = SubResource("CircleShape2D_85g3d")
+
 [node name="Player" parent="." unique_id=1377003254 instance=ExtResource("2_0wfyh")]
 position = Vector2(576, 638)
 
@@ -113,3 +125,15 @@ position = Vector2(1123, 485)
 
 [node name="Mashdoom" parent="." unique_id=1815761454 instance=ExtResource("5_tbgi4")]
 position = Vector2(630, 918)
+
+[node name="To Pemukiman" type="StaticBody2D" parent="." unique_id=1762947318]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="To Pemukiman" unique_id=277542218]
+position = Vector2(1826, 2581)
+shape = SubResource("RectangleShape2D_choun")
+
+[node name="Label" type="Label" parent="To Pemukiman" unique_id=1415175727]
+offset_left = 1773.0
+offset_top = 2522.0
+offset_right = 1813.0
+offset_bottom = 2545.0
