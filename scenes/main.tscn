@@ -179,6 +179,11 @@ position = Vector2(-26.42288, -46.42544)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("3_0ld40")
 
+[node name="TreeVariant25" type="Sprite2D" parent="Blank" unique_id=1430876567]
+position = Vector2(-18.107056, -68.19615)
+scale = Vector2(0.03353155, 0.035170786)
+texture = ExtResource("3_0ld40")
+
 [node name="TreeVariant8" type="Sprite2D" parent="Blank" unique_id=1293986191]
 position = Vector2(-22.600285, -58.700043)
 scale = Vector2(0.03353155, 0.035170786)
@@ -189,38 +194,38 @@ position = Vector2(-26.758213, -34.04532)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("3_0ld40")
 
+[node name="TreeVariant7" type="Sprite2D" parent="Blank" unique_id=853139374]
+position = Vector2(-27.562943, -85.289154)
+scale = Vector2(0.033531554, 0.035170786)
+texture = ExtResource("3_0ld40")
+
 [node name="TreeVariant6" type="Sprite2D" parent="Blank" unique_id=1891214650]
 position = Vector2(-27.69708, -71.85392)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("3_0ld40")
 
-[node name="TreeVariant7" type="Sprite2D" parent="Blank" unique_id=853139374]
-position = Vector2(-27.562954, -85.289154)
-scale = Vector2(0.03353155, 0.035170786)
-texture = ExtResource("3_0ld40")
-
 [node name="TreeVariant9" type="Sprite2D" parent="Blank" unique_id=1549893482]
-position = Vector2(-54.55584, -114.305046)
+position = Vector2(-53.88521, -111.70241)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
 [node name="TreeVariant18" type="Sprite2D" parent="Blank" unique_id=761801515]
-position = Vector2(-167.22183, -4.220482)
+position = Vector2(-166.48416, -5.9790297)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
 [node name="TreeVariant19" type="Sprite2D" parent="Blank" unique_id=981467239]
-position = Vector2(-155.0499, -4.748052)
+position = Vector2(-155.7876, -5.3459554)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
 [node name="TreeVariant20" type="Sprite2D" parent="Blank" unique_id=618170649]
-position = Vector2(-142.40851, -3.974295)
+position = Vector2(-144.6551, -5.345956)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
 [node name="TreeVariant21" type="Sprite2D" parent="Blank" unique_id=467540152]
-position = Vector2(-131.74545, -3.7280993)
+position = Vector2(-132.852, -5.4866385)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
@@ -240,22 +245,47 @@ scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
 [node name="TreeVariant10" type="Sprite2D" parent="Blank" unique_id=1465632054]
-position = Vector2(-65.38653, -114.55124)
+position = Vector2(-64.24645, -111.35071)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
 [node name="TreeVariant11" type="Sprite2D" parent="Blank" unique_id=1885958213]
-position = Vector2(-81.8505, -112.96856)
+position = Vector2(-81.48165, -111.56173)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
 [node name="TreeVariant12" type="Sprite2D" parent="Blank" unique_id=1480719904]
-position = Vector2(-123.36256, -113.21475)
+position = Vector2(-126.14571, -112.72236)
+scale = Vector2(0.03353155, 0.035170786)
+texture = ExtResource("4_gqmmt")
+
+[node name="TreeVariant26" type="Sprite2D" parent="Blank" unique_id=1074997185]
+position = Vector2(-104.51787, -112.01894)
+scale = Vector2(0.03353155, 0.035170786)
+texture = ExtResource("4_gqmmt")
+
+[node name="TreeVariant27" type="Sprite2D" parent="Blank" unique_id=564216128]
+position = Vector2(-93.05008, -111.52656)
+scale = Vector2(0.03353155, 0.035170786)
+texture = ExtResource("4_gqmmt")
+
+[node name="TreeVariant28" type="Sprite2D" parent="Blank" unique_id=1804664616]
+position = Vector2(-115.24795, -113.24992)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
 [node name="TreeVariant13" type="Sprite2D" parent="Blank" unique_id=1658139961]
 position = Vector2(-136.20518, -113.460945)
+scale = Vector2(0.03353155, 0.035170786)
+texture = ExtResource("4_gqmmt")
+
+[node name="TreeVariant30" type="Sprite2D" parent="Blank" unique_id=1677648172]
+position = Vector2(-146.59993, -112.3179)
+scale = Vector2(0.03353155, 0.035170786)
+texture = ExtResource("4_gqmmt")
+
+[node name="TreeVariant31" type="Sprite2D" parent="Blank" unique_id=122311854]
+position = Vector2(-157.33002, -113.54888)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
@@ -269,6 +299,21 @@ position = Vector2(-188.78262, -73.928986)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
+[node name="TreeVariant29" type="Sprite2D" parent="Blank" unique_id=1515909714]
+position = Vector2(-190.32506, -64.74942)
+scale = Vector2(0.03353155, 0.035170786)
+texture = ExtResource("4_gqmmt")
+
+[node name="TreeVariant33" type="Sprite2D" parent="Blank" unique_id=1490041734]
+position = Vector2(-190.7945, -57.01185)
+scale = Vector2(0.03353155, 0.035170786)
+texture = ExtResource("4_gqmmt")
+
+[node name="TreeVariant32" type="Sprite2D" parent="Blank" unique_id=471283179]
+position = Vector2(-188.112, -49.432533)
+scale = Vector2(0.03353155, 0.035170786)
+texture = ExtResource("4_gqmmt")
+
 [node name="TreeVariant16" type="Sprite2D" parent="Blank" unique_id=1041938712]
 position = Vector2(-187.40784, -41.044308)
 scale = Vector2(0.03353155, 0.035170786)
@@ -276,6 +321,16 @@ texture = ExtResource("4_gqmmt")
 
 [node name="TreeVariant17" type="Sprite2D" parent="Blank" unique_id=639861279]
 position = Vector2(-187.64256, -32.28678)
+scale = Vector2(0.03353155, 0.035170786)
+texture = ExtResource("4_gqmmt")
+
+[node name="TreeVariant34" type="Sprite2D" parent="Blank" unique_id=1805898113]
+position = Vector2(-186.90483, -16.459927)
+scale = Vector2(0.03353155, 0.035170786)
+texture = ExtResource("4_gqmmt")
+
+[node name="TreeVariant35" type="Sprite2D" parent="Blank" unique_id=816445331]
+position = Vector2(-185.59714, -8.827866)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
@@ -407,4 +462,4 @@ position = Vector2(6598, 4084)
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=1377003254 instance=ExtResource("2_0wfyh")]
-position = Vector2(5884, 3439)
+position = Vector2(2712, 770)
