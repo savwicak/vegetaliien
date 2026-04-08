@@ -1,17 +1,17 @@
-[gd_scene format=3 uid="uid://7mkb3h8aapkm"]
+[gd_scene format=3 uid="uid://38jnj3415fyp"]
 
-[ext_resource type="Script" uid="uid://cir46dv18r72g" path="res://scripts/enemy/enemy-human.gd" id="1_tcmhl"]
+[ext_resource type="Script" uid="uid://cir46dv18r72g" path="res://scenes/enemy/enemy-human.gd" id="1_tcmhl"]
 [ext_resource type="Texture2D" uid="uid://dgngl334oiha8" path="res://assets/images/enemy-human2.png" id="2_37qjk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l65ia"]
-size = Vector2(54, 186)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6lrf"]
+size = Vector2(53, 89)
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1572387240]
+[node name="EnemyHuman2" type="CharacterBody2D" unique_id=1742479369]
 script = ExtResource("1_tcmhl")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1400292454]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=21262377]
 texture = ExtResource("2_37qjk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1174306990]
-position = Vector2(0, 14)
-shape = SubResource("RectangleShape2D_l65ia")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1213778041]
+position = Vector2(-4.5, 64.5)
+shape = SubResource("RectangleShape2D_s6lrf")

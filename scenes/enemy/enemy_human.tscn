@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://36pt1gqnkrrf"]
 
-[ext_resource type="Script" uid="uid://cir46dv18r72g" path="res://scenes/enemy/enemy-human.gd" id="1_i3nfm"]
+[ext_resource type="Script" uid="uid://cir46dv18r72g" path="res://scripts/enemy/enemy-human.gd" id="1_i3nfm"]
 [ext_resource type="Texture2D" uid="uid://bf25cc57od80m" path="res://scenes/enemy-human.svg" id="2_i3nfm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3nfm"]
-size = Vector2(92, 212)
+size = Vector2(65, 110)
 
 [node name="Enemy-human" type="CharacterBody2D" unique_id=940228232]
 script = ExtResource("1_i3nfm")
@@ -13,5 +13,5 @@ script = ExtResource("1_i3nfm")
 texture = ExtResource("2_i3nfm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1271997143]
-position = Vector2(0, 3)
+position = Vector2(-1.5, 41)
 shape = SubResource("RectangleShape2D_i3nfm")
