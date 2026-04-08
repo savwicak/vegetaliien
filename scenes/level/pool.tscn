@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dintogilorvpb"]
 
-[ext_resource type="Texture2D" uid="uid://cs1dhsw3bx7ho" path="res://assets/map and props/pool.svg" id="1_ucpwk"]
+[ext_resource type="Texture2D" uid="uid://cs1dhsw3bx7ho" path="res://assets/map_forest/pool.svg" id="1_ucpwk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0negj"]
 radius = 301.0

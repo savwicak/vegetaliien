@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b4tmrar6vwfey"]
+
+[ext_resource type="Script" uid="uid://bcqhf6lbe8ft0" path="res://scripts/map/rumah_reuse.gd" id="1_kpfa7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpfa7"]
+size = Vector2(702, 778)
+
+[node name="Rumah" type="CharacterBody2D" unique_id=1059327630]
+script = ExtResource("1_kpfa7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1143165846]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1634875307]
+position = Vector2(8, 1)
+shape = SubResource("RectangleShape2D_kpfa7")

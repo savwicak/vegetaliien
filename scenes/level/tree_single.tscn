@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://2q2g5hgx4of1"]
 
-[ext_resource type="Texture2D" uid="uid://vpuqd4v0v12j" path="res://assets/map and props/single-tree.svg" id="1_ppwlj"]
+[ext_resource type="Texture2D" uid="uid://vpuqd4v0v12j" path="res://assets/map_forest/single-tree.svg" id="1_ppwlj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8d4lq"]
 radius = 66.0

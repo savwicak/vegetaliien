@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bwpwjsk8krkwm"]
 
-[ext_resource type="Texture2D" uid="uid://q6v5nksxnkrb" path="res://assets/map and props/Tree-variant1.svg" id="1_3lid0"]
+[ext_resource type="Texture2D" uid="uid://q6v5nksxnkrb" path="res://assets/map_forest/Tree-variant1.svg" id="1_3lid0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4vtia"]
 radius = 186.02419

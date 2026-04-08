@@ -20,5 +20,5 @@ shape = SubResource("CircleShape2D_dovo2")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1146225356]
 limit_left = 1
 limit_top = -1
-limit_right = 4314
-limit_bottom = 2702
+limit_right = 100000
+limit_bottom = 10000
