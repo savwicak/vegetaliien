@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://b4exo7nhiinbo" path="res://assets/map_pemukiman/Rumah.svg" id="8_yc10j"]
 [ext_resource type="PackedScene" uid="uid://cvnd5o66dm4fk" path="res://scenes/ui/teleport/to_pemukiman.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://bkep6t43tlq3a" path="res://scenes/map/pemukiman.tscn" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://kc2yv0wj8x8u" path="res://scenes/player/bullet.tscn" id="21_yc10j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_85g3d"]
 radius = 320.00626
@@ -110,7 +111,7 @@ scale = Vector2(0.07120842, 0.066383936)
 texture = ExtResource("6_jscy8")
 
 [node name="Sprite2D7" type="Sprite2D" parent="Blank" unique_id=279674228]
-position = Vector2(33.598595, -26.026377)
+position = Vector2(48.318947, -45.229637)
 scale = Vector2(0.06429368, 0.06429368)
 texture = ExtResource("3_0ld40")
 
@@ -346,6 +347,10 @@ position = Vector2(-44.99935, 80.40042)
 scale = Vector2(0.06429371, 0.06429369)
 texture = ExtResource("3_0ld40")
 
+[node name="Pemukiman" parent="." unique_id=52065515 instance=ExtResource("12_eb6dy")]
+position = Vector2(6598, 4084)
+metadata/_edit_lock_ = true
+
 [node name="MapHutan" type="Sprite2D" parent="." unique_id=11637955]
 position = Vector2(2158, 1352)
 texture = ExtResource("1_choun")
@@ -446,10 +451,10 @@ shape = SubResource("CircleShape2D_85g3d")
 [node name="border" parent="MapHutan" unique_id=1756506202 instance=ExtResource("6_ya4ey")]
 
 [node name="EnemyHuman" parent="." unique_id=681502804 instance=ExtResource("3_sugp2")]
-position = Vector2(2011, 970)
+position = Vector2(7178, 4525)
 
 [node name="EnemyHuman2" parent="." unique_id=1742479369 instance=ExtResource("4_jyhfs")]
-position = Vector2(1123, 485)
+position = Vector2(6057, 4273)
 
 [node name="Mashdoom" parent="." unique_id=1815761454 instance=ExtResource("5_tbgi4")]
 position = Vector2(630, 918)
@@ -457,9 +462,6 @@ position = Vector2(630, 918)
 [node name="To Pemukiman" parent="." unique_id=1779487322 instance=ExtResource("11_ya4ey")]
 position = Vector2(1823, 2677)
 
-[node name="Pemukiman" parent="." unique_id=52065515 instance=ExtResource("12_eb6dy")]
-position = Vector2(6598, 4084)
-metadata/_edit_lock_ = true
-
 [node name="Player" parent="." unique_id=1377003254 instance=ExtResource("2_0wfyh")]
 position = Vector2(2712, 770)
+bullet_scene = ExtResource("21_yc10j")

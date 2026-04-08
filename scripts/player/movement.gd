@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+# ===== SHOOTING =====
+@export var bullet_scene: PackedScene
+@onready var shoot_point = $ShootPoint
+
 # ===== MOVEMENT =====
 @export var max_speed := 200
 @export var acceleration := 800
@@ -22,9 +26,14 @@ func _physics_process(delta):
 	input_dir.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_dir = input_dir.normalized()
 
+	# ===== SHOOT =====
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
+
 	# ===== MOVEMENT =====
 	if input_dir != Vector2.ZERO:
 		velocity = velocity.move_toward(input_dir * max_speed, acceleration * delta)
+		
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 
@@ -41,7 +50,26 @@ func _physics_process(delta):
 	else:
 		camera.offset = Vector2.ZERO
 
+# ===== SHOOT FUNCTION =====
+func shoot():
+	if bullet_scene == null:
+		print("BELUM MASUKIN BULLET SCENE")
+		return
 
-# ===== FUNCTION BUAT SHAKE =====
+	var bullet = bullet_scene.instantiate()
+	bullet.global_position = shoot_point.global_position
+
+	# arah ke mouse 🔥
+	var direction = (get_global_mouse_position() - shoot_point.global_position).normalized()
+	bullet.direction = direction
+	bullet.rotation = direction.angle()
+
+	get_tree().current_scene.add_child(bullet)
+
+	# optional: shake dikit biar keren
+	shake(5)
+
+
+# ===== CAMERA SHAKE FUNCTION =====
 func shake(power: float):
 	shake_strength = power
