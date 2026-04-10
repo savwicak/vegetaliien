@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://dawt34xdwomdt" path="res://assets/fonts/Grow Year.otf" id="2_x2yvf"]
 [ext_resource type="StyleBox" uid="uid://173lyfo68u12" path="res://dialog/button.tres" id="3_m1kxf"]
 [ext_resource type="Texture2D" uid="uid://cguii51f3dis2" path="res://assets/images/ui/Logo.png" id="4_uhagc"]
+[ext_resource type="StyleBox" uid="uid://dhmsdojmu12nu" path="res://scenes/ui/button.tres" id="4_x2yvf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btxxm"]
 bg_color = Color(0.92941177, 0.7490196, 0.54901963, 1)
@@ -64,6 +65,7 @@ theme_override_colors/font_color = Color(0.5647059, 0.38431373, 0.3647059, 1)
 theme_override_fonts/font = ExtResource("2_x2yvf")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("3_m1kxf")
+theme_override_styles/hover = ExtResource("4_x2yvf")
 text = "Play"
 expand_icon = true
 
@@ -73,6 +75,7 @@ theme_override_colors/font_color = Color(0.5647059, 0.38431373, 0.3647059, 1)
 theme_override_fonts/font = ExtResource("2_x2yvf")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("3_m1kxf")
+theme_override_styles/hover = ExtResource("4_x2yvf")
 text = "About"
 
 [node name="character_info_button" type="Button" parent="VBoxContainer" unique_id=1836613131]
@@ -81,6 +84,7 @@ theme_override_colors/font_color = Color(0.5647059, 0.38431373, 0.3647059, 1)
 theme_override_fonts/font = ExtResource("2_x2yvf")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("3_m1kxf")
+theme_override_styles/hover = ExtResource("4_x2yvf")
 text = "Character Info"
 
 [node name="Logos" type="Panel" parent="." unique_id=1471911067]

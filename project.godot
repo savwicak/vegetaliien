@@ -23,11 +23,13 @@ Dialogic="*uid://ds2q0uclmolvu"
 
 directories/dch_directory={
 "carrot": "res://dialog/carrot.dch",
+"elepant": "res://dialog/elepant.dch",
 "mashdoom": "res://dialog/mashdoom.dch",
 "narrator": "res://dialog/narrator.dch",
 "tomato": "res://dialog/tomato.dch"
 }
 directories/dtl_directory={
+"elepant": "res://dialog/elepant.dtl",
 "mashdoom": "res://dialog/mashdoom.dtl",
 "meet_carrot": "res://dialog/meet_carrot.dtl",
 "to_pemukiman": "res://dialog/to_pemukiman.dtl",

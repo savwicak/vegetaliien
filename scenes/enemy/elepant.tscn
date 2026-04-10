@@ -1,16 +1,18 @@
 [gd_scene format=3 uid="uid://cqweitjobn7wo"]
 
+[ext_resource type="Script" uid="uid://r6rgll8b1dfx" path="res://scripts/enemy/elepant.gd" id="1_bfi7q"]
 [ext_resource type="Texture2D" uid="uid://dv2lnxebwu04q" path="res://assets/images/enemy elephant.svg" id="1_r6ib5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bfi7q"]
-radius = 121.0
-height = 250.0
+radius = 116.0
+height = 236.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u2ygs"]
 radius = 210.00238
 
 [node name="Elepant" type="CharacterBody2D" unique_id=1932078070]
 z_index = 20
+script = ExtResource("1_bfi7q")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=955136929]
 texture = ExtResource("1_r6ib5")
