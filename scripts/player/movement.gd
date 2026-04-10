@@ -19,8 +19,7 @@ extends CharacterBody2D
 var current_stamina := 0.0
 
 # UI stamina (drag ProgressBar ke sini di Inspector)
-@export var stamina_ui_path: NodePath
-@onready var stamina_bar: TextureProgressBar = $"../CanvasLayer/Control"
+@onready var stamina_bar: TextureProgressBar = get_node("/root/Main/CanvasLayer/Control/ProgressBar")
 
 # ===== DAMAGE & KNOCKBACK =====
 @export var knockback_power: float = 400.0
@@ -41,19 +40,9 @@ var rng := RandomNumberGenerator.new()
 func _ready():
 	rng.randomize()
 	add_to_group("player")
-	var node = get_node_or_null(stamina_ui_path)
-	print(get_node(stamina_ui_path))
 
-	if node is ProgressBar:
-		stamina_bar = node
-	elif node != null:
-		stamina_bar = node.get_node_or_null("ProgressBar")
-
-	if stamina_bar == null:
-		push_error("ProgressBar tidak ditemukan!")
-	else:
-		stamina_bar.max_value = max_stamina
-		stamina_bar.value = current_stamina
+	stamina_bar.max_value = max_stamina
+	stamina_bar.value = current_stamina
 
 	update_stamina_ui()
 
@@ -133,15 +122,20 @@ func shoot():
 # ==========================================================
 func add_stamina(amount: float):
 	current_stamina = clamp(current_stamina + amount, 0, max_stamina)
+
+	# efek kecil
+	scale = Vector2(1.1, 1.1)
+	await get_tree().create_timer(0.05).timeout
+	scale = Vector2(1,1)
+
 	update_stamina_ui()
 
 func update_stamina_ui():
 	if stamina_bar:
-		stamina_bar.max_value = max_stamina
-		stamina_bar.value = current_stamina
+		var tween = create_tween()
+		tween.tween_property(stamina_bar, "value", current_stamina, 0.2)
 	else:
 		push_warning("StaminaBar tidak ditemukan!")
-
 # ==========================================================
 # DAMAGE, KNOCKBACK & FLASH
 # ==========================================================
@@ -156,6 +150,9 @@ func take_damage(from_position: Vector2):
 
 	flash_red()
 	shake(8)
+
+	# 💥 INI YANG PENTING
+	get_node("/root/Main/CanvasLayer/HBoxContainer").take_damage(1)
 
 	await get_tree().create_timer(0.5).timeout
 	is_invincible = false
