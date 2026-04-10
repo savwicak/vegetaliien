@@ -10,6 +10,12 @@ height = 236.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_u2ygs"]
 radius = 210.00238
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bfi7q"]
+radius = 125.67418
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s3ill"]
+radius = 122.06556
+
 [node name="Elepant" type="CharacterBody2D" unique_id=1932078070]
 z_index = 20
 script = ExtResource("1_bfi7q")
@@ -31,3 +37,13 @@ offset_top = -66.0
 offset_right = 77.0
 offset_bottom = -43.0
 text = "Press E To Interact"
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=309786763]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=706234496]
+shape = SubResource("CircleShape2D_bfi7q")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1082870841]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=309521234]
+shape = SubResource("CircleShape2D_s3ill")

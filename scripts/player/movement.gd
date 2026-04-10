@@ -151,7 +151,7 @@ func take_damage(from_position: Vector2):
 	flash_red()
 	shake(8)
 
-	# 💥 INI YANG PENTING
+	# Mengurangi HP melalui UI
 	get_node("/root/Main/CanvasLayer/HBoxContainer").take_damage(1)
 
 	await get_tree().create_timer(0.5).timeout

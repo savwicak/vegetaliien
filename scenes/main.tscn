@@ -471,7 +471,8 @@ position = Vector2(6556, 4290)
 max_energy = 30
 
 [node name="EnergySpawner2" parent="." unique_id=90492413 instance=ExtResource("23_y6deb")]
-position = Vector2(3028, 921)
+position = Vector2(3373.9995, 1231)
+rotation = 3.0772796
 max_energy = 30
 
 [node name="Player" parent="." unique_id=1377003254 instance=ExtResource("2_0wfyh")]

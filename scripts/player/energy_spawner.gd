@@ -3,7 +3,6 @@ extends Node2D
 @export var energy_scene: PackedScene
 @export var spawn_interval: float = 5.0
 @export var max_energy: int = 5
-@export var is_active: bool = true  # Spawner bisa diaktifkan/dinonaktifkan
 
 var spawn_points: Array[Marker2D] = []
 var rng := RandomNumberGenerator.new()
@@ -16,14 +15,13 @@ func _ready():
 		if child is Marker2D:
 			spawn_points.append(child)
 
-	# Jalankan spawn loop
+	# Mulai proses spawn
 	spawn_loop()
 
 func spawn_loop():
 	while true:
 		await get_tree().create_timer(spawn_interval).timeout
-		if is_active:
-			spawn_energy()
+		spawn_energy()
 
 func spawn_energy():
 	if energy_scene == null:
@@ -47,12 +45,6 @@ func spawn_energy():
 
 	print("Energy spawn di:", point.global_position)
 
-# ===== Fungsi untuk mengaktifkan spawner melalui signal =====
-func activate_spawner():
-	is_active = true
-	print("Spawner diaktifkan!")
 
-# ===== Fungsi untuk menonaktifkan spawner =====
-func deactivate_spawner():
-	is_active = false
-	print("Spawner dinonaktifkan!")
+func _on_to_pemukiman_spawner_pemukiman() -> void:
+	pass # Replace with function body.
