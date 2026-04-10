@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://u2idp0kjo76t" path="res://assets/map_forest/Map_Hutan_gundul.svg" id="1_choun"]
 [ext_resource type="Texture2D" uid="uid://gdtcyypbhdm3" path="res://assets/images/blank.png" id="1_trceg"]
 [ext_resource type="PackedScene" uid="uid://cwa73ox237egm" path="res://scenes/player/player.tscn" id="2_0wfyh"]
-[ext_resource type="Texture2D" uid="uid://ca16qh46l8ug6" path="res://assets/images/ui/Heart.svg" id="2_2wyq8"]
 [ext_resource type="Texture2D" uid="uid://exhp64exj10f" path="res://assets/map_pemukiman/pool.png" id="2_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://dxo6qeup14pee" path="res://assets/images/ui/stamina.svg" id="2_y6deb"]
 [ext_resource type="PackedScene" uid="uid://bwpwjsk8krkwm" path="res://scenes/level/tree_variant_1.tscn" id="2_ya4ey"]
@@ -16,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://38jnj3415fyp" path="res://scenes/enemy/enemy_human_2.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://2q2g5hgx4of1" path="res://scenes/level/tree_single.tscn" id="4_trceg"]
 [ext_resource type="PackedScene" uid="uid://dintogilorvpb" path="res://scenes/level/pool.tscn" id="5_a8y0u"]
-[ext_resource type="PackedScene" uid="uid://clhmrpo0yg23" path="res://scenes/alien/mashdoom.tscn" id="5_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://da2pkpyftv18c" path="res://assets/map_pemukiman/jalan.png" id="5_yc10j"]
 [ext_resource type="Texture2D" uid="uid://vpuqd4v0v12j" path="res://assets/map_forest/single-tree.svg" id="6_jscy8"]
 [ext_resource type="PackedScene" uid="uid://ixnxiklpirmq" path="res://scenes/level/border.tscn" id="6_ya4ey"]
@@ -24,8 +22,14 @@
 [ext_resource type="Texture2D" uid="uid://b4exo7nhiinbo" path="res://assets/map_pemukiman/Rumah.svg" id="8_yc10j"]
 [ext_resource type="PackedScene" uid="uid://cvnd5o66dm4fk" path="res://scenes/ui/teleport/to_pemukiman.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://bkep6t43tlq3a" path="res://scenes/map/pemukiman.tscn" id="12_eb6dy"]
+[ext_resource type="Script" uid="uid://dh4ru2l8yw7fv" path="res://scripts/NPC/carrot.gd" id="22_yq6so"]
 [ext_resource type="PackedScene" uid="uid://cpewc8dnjdqcc" path="res://scenes/player/energy_spawner.tscn" id="23_y6deb"]
+[ext_resource type="Texture2D" uid="uid://bfoso5judrwbi" path="res://assets/images/ui/newHear.svg" id="24_2wyq8"]
 [ext_resource type="FontFile" uid="uid://dawt34xdwomdt" path="res://assets/fonts/Grow Year.otf" id="26_2wyq8"]
+[ext_resource type="Script" uid="uid://cyea1k5d7cgr6" path="res://scripts/GameManager.gd" id="27_vxglm"]
+[ext_resource type="PackedScene" uid="uid://dl8nu0nu4bk8k" path="res://scenes/player/EnergyPickup.tscn" id="28_2f3dj"]
+[ext_resource type="PackedScene" uid="uid://ban58m5ccn2xo" path="res://scenes/alien/carrot.tscn" id="29_yq6so"]
+[ext_resource type="PackedScene" uid="uid://cqweitjobn7wo" path="res://scenes/enemy/elepant.tscn" id="30_fv21b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_85g3d"]
 radius = 320.00626
@@ -34,446 +38,459 @@ radius = 320.00626
 
 [node name="Main" type="Node2D" unique_id=886762236]
 
-[node name="Blank" type="Sprite2D" parent="." unique_id=1636087914]
+[node name="GameManager" type="Node2D" parent="." unique_id=191144737]
+script = ExtResource("27_vxglm")
+
+[node name="Map" type="Node" parent="." unique_id=2091968295]
+
+[node name="Blank" type="Sprite2D" parent="Map" unique_id=1636087914]
 position = Vector2(5353.0005, 3022)
 scale = Vector2(29.822662, 28.43269)
 texture = ExtResource("1_trceg")
 metadata/_edit_lock_ = true
 
-[node name="Pool" type="Sprite2D" parent="Blank" unique_id=557266004]
+[node name="Pool" type="Sprite2D" parent="Map/Blank" unique_id=557266004]
 position = Vector2(-7.7793274, -18.605347)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("2_dp3eg")
 
-[node name="Pool2" type="Sprite2D" parent="Blank" unique_id=11892273]
+[node name="Pool2" type="Sprite2D" parent="Map/Blank" unique_id=11892273]
 position = Vector2(97.425896, -21.999327)
 scale = Vector2(0.024554048, 0.05411505)
 texture = ExtResource("2_dp3eg")
 
-[node name="Sprite2D" type="Sprite2D" parent="Blank" unique_id=432514474]
+[node name="Sprite2D" type="Sprite2D" parent="Map/Blank" unique_id=432514474]
 position = Vector2(55.19291, -24.37335)
 scale = Vector2(0.064293675, 0.064293675)
 texture = ExtResource("3_0ld40")
 
-[node name="Jalan2" type="Sprite2D" parent="Blank" unique_id=1044772747]
+[node name="Jalan2" type="Sprite2D" parent="Map/Blank" unique_id=1044772747]
 position = Vector2(-50.80031, 42.240112)
 scale = Vector2(0.033531554, 0.035170786)
 texture = ExtResource("5_yc10j")
 
-[node name="Sprite2D6" type="Sprite2D" parent="Blank" unique_id=1610711351]
+[node name="Sprite2D6" type="Sprite2D" parent="Map/Blank" unique_id=1610711351]
 position = Vector2(55.19291, -24.37335)
 scale = Vector2(0.064293675, 0.064293675)
 texture = ExtResource("3_0ld40")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Blank" unique_id=766989309]
+[node name="Sprite2D2" type="Sprite2D" parent="Map/Blank" unique_id=766989309]
 position = Vector2(-45.334667, 57.750427)
 scale = Vector2(0.064293675, 0.064293675)
 texture = ExtResource("3_0ld40")
 
-[node name="Sprite2D4" type="Sprite2D" parent="Blank" unique_id=113208214]
+[node name="Sprite2D4" type="Sprite2D" parent="Map/Blank" unique_id=113208214]
 position = Vector2(-35.174606, 96.15691)
 scale = Vector2(0.064293675, 0.064293675)
 texture = ExtResource("3_0ld40")
 
-[node name="Sprite2D5" type="Sprite2D" parent="Blank" unique_id=1097041663]
+[node name="Sprite2D5" type="Sprite2D" parent="Map/Blank" unique_id=1097041663]
 position = Vector2(-16.061625, 100.16638)
 scale = Vector2(0.064293675, 0.064293675)
 texture = ExtResource("3_0ld40")
 
-[node name="TreeVariant2" type="Sprite2D" parent="Blank" unique_id=313601907]
+[node name="TreeVariant2" type="Sprite2D" parent="Map/Blank" unique_id=313601907]
 position = Vector2(68.806725, -22.122425)
 scale = Vector2(0.06399961, 0.06712829)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant1" type="Sprite2D" parent="Blank" unique_id=397058150]
+[node name="TreeVariant1" type="Sprite2D" parent="Map/Blank" unique_id=397058150]
 position = Vector2(128.76115, 5.0645905)
 scale = Vector2(0.057125937, 0.059918623)
 texture = ExtResource("3_0ld40")
 
-[node name="TreeVariant3" type="Sprite2D" parent="Blank" unique_id=205479404]
+[node name="TreeVariant3" type="Sprite2D" parent="Map/Blank" unique_id=205479404]
 position = Vector2(126.95045, 26.835304)
 scale = Vector2(0.057125937, 0.059918623)
 texture = ExtResource("3_0ld40")
 
-[node name="Jalan" type="Sprite2D" parent="Blank" unique_id=190490560]
+[node name="Jalan" type="Sprite2D" parent="Map/Blank" unique_id=190490560]
 position = Vector2(135.16566, 40.97396)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("5_yc10j")
 
-[node name="Jalan3" type="Sprite2D" parent="Blank" unique_id=1381120135]
+[node name="Jalan3" type="Sprite2D" parent="Map/Blank" unique_id=1381120135]
 position = Vector2(30.614285, 102.87454)
 rotation = 1.5667114
 scale = Vector2(0.03353155, 0.029567502)
 texture = ExtResource("5_yc10j")
 
-[node name="Jalan4" type="Sprite2D" parent="Blank" unique_id=2054319524]
+[node name="Jalan4" type="Sprite2D" parent="Map/Blank" unique_id=2054319524]
 position = Vector2(30.245438, -22.47413)
 rotation = 1.5667114
 scale = Vector2(0.03353155, 0.029567502)
 texture = ExtResource("5_yc10j")
 
-[node name="SingleTree" type="Sprite2D" parent="Blank" unique_id=1755482572]
+[node name="SingleTree" type="Sprite2D" parent="Map/Blank" unique_id=1755482572]
 position = Vector2(111.99535, 11.747045)
 scale = Vector2(0.07120842, 0.066383936)
 texture = ExtResource("6_jscy8")
 
-[node name="Sprite2D7" type="Sprite2D" parent="Blank" unique_id=279674228]
+[node name="Sprite2D7" type="Sprite2D" parent="Map/Blank" unique_id=279674228]
 position = Vector2(48.318947, -45.229637)
 scale = Vector2(0.06429368, 0.06429368)
 texture = ExtResource("3_0ld40")
 
-[node name="Sprite2D9" type="Sprite2D" parent="Blank" unique_id=1364646518]
+[node name="Sprite2D9" type="Sprite2D" parent="Map/Blank" unique_id=1364646518]
 position = Vector2(129.43176, 42.06427)
 scale = Vector2(0.06429368, 0.06429368)
 texture = ExtResource("3_0ld40")
 
-[node name="Sprite2D10" type="Sprite2D" parent="Blank" unique_id=1057137875]
+[node name="Sprite2D10" type="Sprite2D" parent="Map/Blank" unique_id=1057137875]
 position = Vector2(125.60917, 62.111603)
 scale = Vector2(0.06429368, 0.06429368)
 texture = ExtResource("3_0ld40")
 
-[node name="Sprite2D11" type="Sprite2D" parent="Blank" unique_id=381052244]
+[node name="Sprite2D11" type="Sprite2D" parent="Map/Blank" unique_id=381052244]
 position = Vector2(125.60917, 62.111603)
 scale = Vector2(0.06429368, 0.06429368)
 texture = ExtResource("3_0ld40")
 
-[node name="Sprite2D15" type="Sprite2D" parent="Blank" unique_id=58274768]
+[node name="Sprite2D15" type="Sprite2D" parent="Map/Blank" unique_id=58274768]
 position = Vector2(125.60917, 62.111603)
 scale = Vector2(0.06429368, 0.06429368)
 texture = ExtResource("3_0ld40")
 
-[node name="Sprite2D16" type="Sprite2D" parent="Blank" unique_id=1867254317]
+[node name="Sprite2D16" type="Sprite2D" parent="Map/Blank" unique_id=1867254317]
 position = Vector2(104.216034, 99.920204)
 scale = Vector2(0.06429368, 0.06429368)
 texture = ExtResource("3_0ld40")
 
-[node name="Sprite2D17" type="Sprite2D" parent="Blank" unique_id=1226823137]
+[node name="Sprite2D17" type="Sprite2D" parent="Map/Blank" unique_id=1226823137]
 position = Vector2(125.87741, 92.99156)
 scale = Vector2(0.06429368, 0.06429368)
 texture = ExtResource("3_0ld40")
 
-[node name="Sprite2D12" type="Sprite2D" parent="Blank" unique_id=1265341841]
+[node name="Sprite2D12" type="Sprite2D" parent="Map/Blank" unique_id=1265341841]
 position = Vector2(2.783104, 101.6084)
 scale = Vector2(0.06429368, 0.06429368)
 texture = ExtResource("3_0ld40")
 
-[node name="Sprite2D13" type="Sprite2D" parent="Blank" unique_id=1062155510]
+[node name="Sprite2D13" type="Sprite2D" parent="Map/Blank" unique_id=1062155510]
 position = Vector2(21.627834, 102.4525)
 scale = Vector2(0.06429368, 0.06429368)
 texture = ExtResource("3_0ld40")
 
-[node name="Pool3" type="Sprite2D" parent="Blank" unique_id=1526369792]
+[node name="Pool3" type="Sprite2D" parent="Map/Blank" unique_id=1526369792]
 position = Vector2(69.54442, 93.44878)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("2_dp3eg")
 
-[node name="Sprite2D14" type="Sprite2D" parent="Blank" unique_id=34383862]
+[node name="Sprite2D14" type="Sprite2D" parent="Map/Blank" unique_id=34383862]
 position = Vector2(42.383865, 99.60367)
 scale = Vector2(0.06429368, 0.06429368)
 texture = ExtResource("3_0ld40")
 
-[node name="Rumah(4)" type="Sprite2D" parent="Blank" unique_id=1694876970]
+[node name="Rumah(4)" type="Sprite2D" parent="Map/Blank" unique_id=1694876970]
 position = Vector2(-32.056175, 63.342575)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("7_gqmmt")
 
-[node name="Rumah" type="Sprite2D" parent="Blank" unique_id=1624993561]
+[node name="Rumah" type="Sprite2D" parent="Map/Blank" unique_id=1624993561]
 position = Vector2(109.61461, 68.16099)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("8_yc10j")
 
-[node name="TreeVariant4" type="Sprite2D" parent="Blank" unique_id=1666221396]
+[node name="TreeVariant4" type="Sprite2D" parent="Map/Blank" unique_id=1666221396]
 position = Vector2(-26.42288, -46.42544)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("3_0ld40")
 
-[node name="TreeVariant25" type="Sprite2D" parent="Blank" unique_id=1430876567]
+[node name="TreeVariant25" type="Sprite2D" parent="Map/Blank" unique_id=1430876567]
 position = Vector2(-18.107056, -68.19615)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("3_0ld40")
 
-[node name="TreeVariant8" type="Sprite2D" parent="Blank" unique_id=1293986191]
+[node name="TreeVariant8" type="Sprite2D" parent="Map/Blank" unique_id=1293986191]
 position = Vector2(-22.600285, -58.700043)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("3_0ld40")
 
-[node name="TreeVariant5" type="Sprite2D" parent="Blank" unique_id=1294984701]
+[node name="TreeVariant5" type="Sprite2D" parent="Map/Blank" unique_id=1294984701]
 position = Vector2(-26.758213, -34.04532)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("3_0ld40")
 
-[node name="TreeVariant7" type="Sprite2D" parent="Blank" unique_id=853139374]
+[node name="TreeVariant7" type="Sprite2D" parent="Map/Blank" unique_id=853139374]
 position = Vector2(-27.562943, -85.289154)
 scale = Vector2(0.033531554, 0.035170786)
 texture = ExtResource("3_0ld40")
 
-[node name="TreeVariant6" type="Sprite2D" parent="Blank" unique_id=1891214650]
+[node name="TreeVariant6" type="Sprite2D" parent="Map/Blank" unique_id=1891214650]
 position = Vector2(-27.69708, -71.85392)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("3_0ld40")
 
-[node name="TreeVariant9" type="Sprite2D" parent="Blank" unique_id=1549893482]
+[node name="TreeVariant9" type="Sprite2D" parent="Map/Blank" unique_id=1549893482]
 position = Vector2(-53.88521, -111.70241)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant18" type="Sprite2D" parent="Blank" unique_id=761801515]
+[node name="TreeVariant18" type="Sprite2D" parent="Map/Blank" unique_id=761801515]
 position = Vector2(-166.48416, -5.9790297)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant19" type="Sprite2D" parent="Blank" unique_id=981467239]
+[node name="TreeVariant19" type="Sprite2D" parent="Map/Blank" unique_id=981467239]
 position = Vector2(-155.7876, -5.3459554)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant20" type="Sprite2D" parent="Blank" unique_id=618170649]
+[node name="TreeVariant20" type="Sprite2D" parent="Map/Blank" unique_id=618170649]
 position = Vector2(-144.6551, -5.345956)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant21" type="Sprite2D" parent="Blank" unique_id=467540152]
+[node name="TreeVariant21" type="Sprite2D" parent="Map/Blank" unique_id=467540152]
 position = Vector2(-132.852, -5.4866385)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant22" type="Sprite2D" parent="Blank" unique_id=1421295409]
+[node name="TreeVariant22" type="Sprite2D" parent="Map/Blank" unique_id=1421295409]
 position = Vector2(-107.16684, -4.255661)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant23" type="Sprite2D" parent="Blank" unique_id=469765516]
+[node name="TreeVariant23" type="Sprite2D" parent="Map/Blank" unique_id=469765516]
 position = Vector2(-94.257195, -3.4819038)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant24" type="Sprite2D" parent="Blank" unique_id=1696935338]
+[node name="TreeVariant24" type="Sprite2D" parent="Map/Blank" unique_id=1696935338]
 position = Vector2(-57.54015, -3.7280993)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant10" type="Sprite2D" parent="Blank" unique_id=1465632054]
+[node name="TreeVariant10" type="Sprite2D" parent="Map/Blank" unique_id=1465632054]
 position = Vector2(-64.24645, -111.35071)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant11" type="Sprite2D" parent="Blank" unique_id=1885958213]
+[node name="TreeVariant11" type="Sprite2D" parent="Map/Blank" unique_id=1885958213]
 position = Vector2(-81.48165, -111.56173)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant12" type="Sprite2D" parent="Blank" unique_id=1480719904]
+[node name="TreeVariant12" type="Sprite2D" parent="Map/Blank" unique_id=1480719904]
 position = Vector2(-126.14571, -112.72236)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant26" type="Sprite2D" parent="Blank" unique_id=1074997185]
+[node name="TreeVariant26" type="Sprite2D" parent="Map/Blank" unique_id=1074997185]
 position = Vector2(-104.51787, -112.01894)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant27" type="Sprite2D" parent="Blank" unique_id=564216128]
+[node name="TreeVariant27" type="Sprite2D" parent="Map/Blank" unique_id=564216128]
 position = Vector2(-93.05008, -111.52656)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant28" type="Sprite2D" parent="Blank" unique_id=1804664616]
+[node name="TreeVariant28" type="Sprite2D" parent="Map/Blank" unique_id=1804664616]
 position = Vector2(-115.24795, -113.24992)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant13" type="Sprite2D" parent="Blank" unique_id=1658139961]
+[node name="TreeVariant13" type="Sprite2D" parent="Map/Blank" unique_id=1658139961]
 position = Vector2(-136.20518, -113.460945)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant30" type="Sprite2D" parent="Blank" unique_id=1677648172]
+[node name="TreeVariant30" type="Sprite2D" parent="Map/Blank" unique_id=1677648172]
 position = Vector2(-146.59993, -112.3179)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant31" type="Sprite2D" parent="Blank" unique_id=122311854]
+[node name="TreeVariant31" type="Sprite2D" parent="Map/Blank" unique_id=122311854]
 position = Vector2(-157.33002, -113.54888)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant14" type="Sprite2D" parent="Blank" unique_id=1352697502]
+[node name="TreeVariant14" type="Sprite2D" parent="Map/Blank" unique_id=1352697502]
 position = Vector2(-186.9719, -81.7369)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant15" type="Sprite2D" parent="Blank" unique_id=522505212]
+[node name="TreeVariant15" type="Sprite2D" parent="Map/Blank" unique_id=522505212]
 position = Vector2(-188.78262, -73.928986)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant29" type="Sprite2D" parent="Blank" unique_id=1515909714]
+[node name="TreeVariant29" type="Sprite2D" parent="Map/Blank" unique_id=1515909714]
 position = Vector2(-190.32506, -64.74942)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant33" type="Sprite2D" parent="Blank" unique_id=1490041734]
+[node name="TreeVariant33" type="Sprite2D" parent="Map/Blank" unique_id=1490041734]
 position = Vector2(-190.7945, -57.01185)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant32" type="Sprite2D" parent="Blank" unique_id=471283179]
+[node name="TreeVariant32" type="Sprite2D" parent="Map/Blank" unique_id=471283179]
 position = Vector2(-188.112, -49.432533)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant16" type="Sprite2D" parent="Blank" unique_id=1041938712]
+[node name="TreeVariant16" type="Sprite2D" parent="Map/Blank" unique_id=1041938712]
 position = Vector2(-187.40784, -41.044308)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant17" type="Sprite2D" parent="Blank" unique_id=639861279]
+[node name="TreeVariant17" type="Sprite2D" parent="Map/Blank" unique_id=639861279]
 position = Vector2(-187.64256, -32.28678)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant34" type="Sprite2D" parent="Blank" unique_id=1805898113]
+[node name="TreeVariant34" type="Sprite2D" parent="Map/Blank" unique_id=1805898113]
 position = Vector2(-186.90483, -16.459927)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="TreeVariant35" type="Sprite2D" parent="Blank" unique_id=816445331]
+[node name="TreeVariant35" type="Sprite2D" parent="Map/Blank" unique_id=816445331]
 position = Vector2(-185.59714, -8.827866)
 scale = Vector2(0.03353155, 0.035170786)
 texture = ExtResource("4_gqmmt")
 
-[node name="Jalan5" type="Sprite2D" parent="Blank" unique_id=1640222580]
+[node name="Jalan5" type="Sprite2D" parent="Map/Blank" unique_id=1640222580]
 position = Vector2(-118.1652, -5.768012)
 rotation = -1.570121
 scale = Vector2(0.031379968, 0.029917415)
 skew = 6.759167e-05
 texture = ExtResource("5_yc10j")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Blank" unique_id=1536792064]
+[node name="Sprite2D3" type="Sprite2D" parent="Map/Blank" unique_id=1536792064]
 position = Vector2(-44.99935, 80.40042)
 scale = Vector2(0.06429371, 0.06429369)
 texture = ExtResource("3_0ld40")
 
-[node name="Pemukiman" parent="." unique_id=52065515 instance=ExtResource("12_eb6dy")]
+[node name="Pemukiman" parent="Map" unique_id=52065515 instance=ExtResource("12_eb6dy")]
 position = Vector2(6598, 4084)
 metadata/_edit_lock_ = true
 
-[node name="MapHutan" type="Sprite2D" parent="." unique_id=11637955]
+[node name="MapHutan" type="Sprite2D" parent="Map" unique_id=11637955]
 position = Vector2(2158, 1352)
 texture = ExtResource("1_choun")
 metadata/_edit_lock_ = true
 
-[node name="Trees" type="Node" parent="MapHutan" unique_id=1420445256]
+[node name="Trees" type="Node" parent="Map/MapHutan" unique_id=1420445256]
 
-[node name="tree-variant1" parent="MapHutan/Trees" unique_id=1675398838 instance=ExtResource("2_ya4ey")]
+[node name="tree-variant1" parent="Map/MapHutan/Trees" unique_id=1675398838 instance=ExtResource("2_ya4ey")]
 position = Vector2(1975, 76)
 
-[node name="tree-variant5" parent="MapHutan/Trees" unique_id=1956990843 instance=ExtResource("2_ya4ey")]
+[node name="tree-variant5" parent="Map/MapHutan/Trees" unique_id=1956990843 instance=ExtResource("2_ya4ey")]
 position = Vector2(53, 155)
 
-[node name="tree-variant6" parent="MapHutan/Trees" unique_id=578033869 instance=ExtResource("2_ya4ey")]
+[node name="tree-variant6" parent="Map/MapHutan/Trees" unique_id=578033869 instance=ExtResource("2_ya4ey")]
 position = Vector2(45, 1066)
 
-[node name="tree-variant7" parent="MapHutan/Trees" unique_id=110987507 instance=ExtResource("2_ya4ey")]
+[node name="tree-variant7" parent="Map/MapHutan/Trees" unique_id=110987507 instance=ExtResource("2_ya4ey")]
 position = Vector2(174, 1488)
 
-[node name="tree-variant2" parent="MapHutan/Trees" unique_id=1165696113 instance=ExtResource("2_ya4ey")]
+[node name="tree-variant2" parent="Map/MapHutan/Trees" unique_id=1165696113 instance=ExtResource("2_ya4ey")]
 position = Vector2(2496, 110)
 
-[node name="tree-variant3" parent="MapHutan/Trees" unique_id=1670121078 instance=ExtResource("3_eb6dy")]
+[node name="tree-variant3" parent="Map/MapHutan/Trees" unique_id=1670121078 instance=ExtResource("3_eb6dy")]
 position = Vector2(1053, 74)
 
-[node name="tree-variant8" parent="MapHutan/Trees" unique_id=1061441957 instance=ExtResource("3_eb6dy")]
+[node name="tree-variant8" parent="Map/MapHutan/Trees" unique_id=1061441957 instance=ExtResource("3_eb6dy")]
 position = Vector2(63, 2307)
 
-[node name="tree-variant9" parent="MapHutan/Trees" unique_id=1144680578 instance=ExtResource("3_eb6dy")]
+[node name="tree-variant9" parent="Map/MapHutan/Trees" unique_id=1144680578 instance=ExtResource("3_eb6dy")]
 position = Vector2(201, 2499)
 
-[node name="tree-variant4" parent="MapHutan/Trees" unique_id=1566653428 instance=ExtResource("3_eb6dy")]
+[node name="tree-variant4" parent="Map/MapHutan/Trees" unique_id=1566653428 instance=ExtResource("3_eb6dy")]
 position = Vector2(3221, 51)
 
-[node name="tree-variant10" parent="MapHutan/Trees" unique_id=1617901451 instance=ExtResource("2_ya4ey")]
+[node name="tree-variant10" parent="Map/MapHutan/Trees" unique_id=1617901451 instance=ExtResource("2_ya4ey")]
 position = Vector2(1839, 1961)
 
-[node name="tree-variant14" parent="MapHutan/Trees" unique_id=2020485621 instance=ExtResource("2_ya4ey")]
+[node name="tree-variant14" parent="Map/MapHutan/Trees" unique_id=2020485621 instance=ExtResource("2_ya4ey")]
 position = Vector2(4078, 2483)
 
-[node name="tree-variant11" parent="MapHutan/Trees" unique_id=866537368 instance=ExtResource("3_eb6dy")]
+[node name="tree-variant11" parent="Map/MapHutan/Trees" unique_id=866537368 instance=ExtResource("3_eb6dy")]
 position = Vector2(2357, 1948)
 
-[node name="tree-variant12" parent="MapHutan/Trees" unique_id=366572362 instance=ExtResource("3_eb6dy")]
+[node name="tree-variant12" parent="Map/MapHutan/Trees" unique_id=366572362 instance=ExtResource("3_eb6dy")]
 position = Vector2(2269, 2207)
 
-[node name="tree-variant13" parent="MapHutan/Trees" unique_id=1829266365 instance=ExtResource("3_eb6dy")]
+[node name="tree-variant13" parent="Map/MapHutan/Trees" unique_id=1829266365 instance=ExtResource("3_eb6dy")]
 position = Vector2(2586, 2169)
 
-[node name="tree-single" parent="MapHutan/Trees" unique_id=603665452 instance=ExtResource("4_trceg")]
+[node name="tree-single" parent="Map/MapHutan/Trees" unique_id=603665452 instance=ExtResource("4_trceg")]
 position = Vector2(4249, 2307)
 
-[node name="tree-variant15" parent="MapHutan/Trees" unique_id=1504674627 instance=ExtResource("2_ya4ey")]
+[node name="tree-variant15" parent="Map/MapHutan/Trees" unique_id=1504674627 instance=ExtResource("2_ya4ey")]
 position = Vector2(4099, 1213)
 
-[node name="tree-variant16" parent="MapHutan/Trees" unique_id=141137088 instance=ExtResource("3_eb6dy")]
+[node name="tree-variant16" parent="Map/MapHutan/Trees" unique_id=141137088 instance=ExtResource("3_eb6dy")]
 position = Vector2(4199, 1618)
 
-[node name="tree-single2" parent="MapHutan/Trees" unique_id=1048887894 instance=ExtResource("4_trceg")]
+[node name="tree-single2" parent="Map/MapHutan/Trees" unique_id=1048887894 instance=ExtResource("4_trceg")]
 position = Vector2(4253, 987)
 
-[node name="tree-variant18" parent="MapHutan/Trees" unique_id=1518042772 instance=ExtResource("2_ya4ey")]
+[node name="tree-variant18" parent="Map/MapHutan/Trees" unique_id=1518042772 instance=ExtResource("2_ya4ey")]
 position = Vector2(4031, 77)
 
-[node name="tree-variant17" parent="MapHutan/Trees" unique_id=898871859 instance=ExtResource("3_eb6dy")]
+[node name="tree-variant17" parent="Map/MapHutan/Trees" unique_id=898871859 instance=ExtResource("3_eb6dy")]
 position = Vector2(4174, 482)
 
-[node name="tree and pool" type="Node" parent="MapHutan" unique_id=117731934]
+[node name="tree and pool" type="Node" parent="Map/MapHutan" unique_id=117731934]
 
-[node name="tree-single" parent="MapHutan/tree and pool" unique_id=627176222 instance=ExtResource("4_trceg")]
+[node name="tree-single" parent="Map/MapHutan/tree and pool" unique_id=627176222 instance=ExtResource("4_trceg")]
 position = Vector2(1226, 1112)
 
-[node name="tree-single2" parent="MapHutan/tree and pool" unique_id=1787668492 instance=ExtResource("4_trceg")]
+[node name="tree-single2" parent="Map/MapHutan/tree and pool" unique_id=1787668492 instance=ExtResource("4_trceg")]
 position = Vector2(736, 1177)
 scale = Vector2(0.8000012, 0.8000012)
 
-[node name="pool" parent="MapHutan/tree and pool" unique_id=1847639885 instance=ExtResource("5_a8y0u")]
+[node name="pool" parent="Map/MapHutan/tree and pool" unique_id=1847639885 instance=ExtResource("5_a8y0u")]
 position = Vector2(1007, 1329)
 
-[node name="tree and pool2" type="Node" parent="MapHutan" unique_id=1505681263]
+[node name="tree and pool2" type="Node" parent="Map/MapHutan" unique_id=1505681263]
 
-[node name="tree-single" parent="MapHutan/tree and pool2" unique_id=262067646 instance=ExtResource("4_trceg")]
+[node name="tree-single" parent="Map/MapHutan/tree and pool2" unique_id=262067646 instance=ExtResource("4_trceg")]
 position = Vector2(3407, 2432)
 
-[node name="tree-single2" parent="MapHutan/tree and pool2" unique_id=417582024 instance=ExtResource("4_trceg")]
+[node name="tree-single2" parent="Map/MapHutan/tree and pool2" unique_id=417582024 instance=ExtResource("4_trceg")]
 position = Vector2(2917, 2497)
 scale = Vector2(0.8000012, 0.8000012)
 
-[node name="pool" parent="MapHutan/tree and pool2" unique_id=2020701019 instance=ExtResource("5_a8y0u")]
+[node name="pool" parent="Map/MapHutan/tree and pool2" unique_id=2020701019 instance=ExtResource("5_a8y0u")]
 position = Vector2(3192, 2651)
 
-[node name="ufo" type="StaticBody2D" parent="MapHutan" unique_id=1669205480]
+[node name="ufo" type="StaticBody2D" parent="Map/MapHutan" unique_id=1669205480]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MapHutan/ufo" unique_id=1962266839]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/MapHutan/ufo" unique_id=1962266839]
 position = Vector2(-1326, -1057)
 shape = SubResource("CircleShape2D_85g3d")
 
-[node name="border" parent="MapHutan" unique_id=1756506202 instance=ExtResource("6_ya4ey")]
+[node name="border" parent="Map/MapHutan" unique_id=1756506202 instance=ExtResource("6_ya4ey")]
 
 [node name="EnergySpawner" parent="." unique_id=83755230 instance=ExtResource("23_y6deb")]
-position = Vector2(6698, 4235)
-spawn_interval = 1.5
-max_energy = 10
+position = Vector2(6556, 4290)
+max_energy = 30
+
+[node name="EnergySpawner2" parent="." unique_id=90492413 instance=ExtResource("23_y6deb")]
+position = Vector2(3266, 952)
+max_energy = 30
 
 [node name="Player" parent="." unique_id=1377003254 instance=ExtResource("2_0wfyh")]
-position = Vector2(1691, 2488)
+z_index = 30
+position = Vector2(2859, 871)
 
 [node name="EnemyHuman" parent="." unique_id=681502804 instance=ExtResource("3_sugp2")]
-position = Vector2(7178, 4525)
+z_index = 30
+position = Vector2(6965, 4502)
 speed = 40
 
 [node name="EnemyHuman2" parent="." unique_id=1742479369 instance=ExtResource("4_jyhfs")]
-position = Vector2(6057, 4273)
+z_index = 30
+position = Vector2(5844, 4250)
 
-[node name="Mashdoom" parent="." unique_id=1815761454 instance=ExtResource("5_tbgi4")]
-position = Vector2(630, 918)
+[node name="Carrot" parent="." unique_id=642197605 instance=ExtResource("29_yq6so")]
+z_index = 30
+position = Vector2(1887, 1311)
+script = ExtResource("22_yq6so")
 
 [node name="To Pemukiman" parent="." unique_id=1779487322 instance=ExtResource("11_ya4ey")]
 position = Vector2(1823, 2665)
@@ -489,33 +506,41 @@ navigation_polygon = SubResource("NavigationPolygon_jscy8")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2109349788]
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=1485902434]
-offset_left = 12.0
-offset_top = 11.0
-offset_right = 55.0
-offset_bottom = 34.0
+offset_left = 11.0
+offset_top = 7.0
+offset_right = 77.0
+offset_bottom = 38.0
 theme_override_fonts/font = ExtResource("26_2wyq8")
 theme_override_font_sizes/font_size = 25
-text = "h eart"
+text = "heart"
+metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=165219422]
 z_index = 100
 custom_minimum_size = Vector2(16, 16)
-offset_left = 13.0
-offset_top = 42.0
-offset_right = 172.0
-offset_bottom = 66.0
+offset_left = 12.0
+offset_top = 38.0
+offset_right = 171.0
+offset_bottom = 62.0
 script = ExtResource("1_2wyq8")
 max_health = 5
-heart_texture = ExtResource("2_2wyq8")
+heart_texture = ExtResource("24_2wyq8")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="CanvasLayer" unique_id=1075712140]
-offset_left = 1033.0
-offset_top = 563.0
-offset_right = 1130.0
-offset_bottom = 594.0
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.89300007
+anchor_right = 1.0
+anchor_bottom = 0.89300007
+offset_left = -119.0
+offset_top = -15.6640625
+offset_right = -22.0
+offset_bottom = 15.3359375
 theme_override_fonts/font = ExtResource("26_2wyq8")
 theme_override_font_sizes/font_size = 25
 text = "stamina"
+metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=44876097]
 layout_mode = 3
@@ -527,11 +552,61 @@ offset_bottom = 642.0
 
 [node name="ProgressBar" type="TextureProgressBar" parent="CanvasLayer/Control" unique_id=1515452497]
 custom_minimum_size = Vector2(100, 0)
-layout_mode = 0
-offset_left = 913.99994
-offset_top = -2.0000038
-offset_right = 1517.0
-offset_bottom = 94.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 28.593
+anchor_top = 0.38200003
+anchor_right = 28.593
+anchor_bottom = 0.38200003
+offset_left = -229.72003
+offset_top = -17.280005
+offset_right = 373.28003
+offset_bottom = 78.72
+grow_horizontal = 0
+grow_vertical = 0
 scale = Vector2(0.3599999, 0.3599999)
 texture_under = ExtResource("2_y6deb")
 texture_progress = ExtResource("3_og1vs")
+
+[node name="ControlTutorial" type="Control" parent="CanvasLayer" unique_id=740116860]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/ControlTutorial" unique_id=2023563125]
+layout_mode = 0
+offset_left = 1523.0
+offset_top = 2264.0
+offset_right = 2523.0
+offset_bottom = 2464.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ControlTutorial" unique_id=1944206434]
+layout_mode = 0
+offset_left = 1595.0
+offset_top = 2303.0
+offset_right = 2437.0
+offset_bottom = 2423.0
+theme_override_fonts/font = ExtResource("26_2wyq8")
+theme_override_font_sizes/font_size = 30
+text = "text"
+
+[node name="Tutorial" type="Node" parent="." unique_id=767234757]
+
+[node name="EnergyPickup" parent="Tutorial" unique_id=505689513 instance=ExtResource("28_2f3dj")]
+position = Vector2(1166, 896)
+
+[node name="EnergyPickup2" parent="Tutorial" unique_id=716117031 instance=ExtResource("28_2f3dj")]
+position = Vector2(1652, 1059)
+
+[node name="EnergyPickup3" parent="Tutorial" unique_id=691114211 instance=ExtResource("28_2f3dj")]
+position = Vector2(729, 1021)
+
+[node name="EnergyPickup4" parent="Tutorial" unique_id=234164150 instance=ExtResource("28_2f3dj")]
+position = Vector2(1541, 931)
+
+[node name="Elepant" parent="." unique_id=1112896309 instance=ExtResource("30_fv21b")]
+position = Vector2(3300, 668)
+
+[connection signal="spawner_pemukiman" from="To Pemukiman" to="EnergySpawner" method="_on_to_pemukiman_spawner_pemukiman"]

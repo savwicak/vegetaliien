@@ -3,6 +3,8 @@ extends Area2D
 @export var spawn_point_path: NodePath  # Drag Marker2D di Inspector
 @export var timeline_name: String = "to_pemukiman"
 
+signal spawner_pemukiman
+
 var player_ref: Node2D = null
 var dialog_started := false
 var spawn_point: Marker2D
@@ -39,6 +41,7 @@ func _on_dialogic_signal(argument: String):
 func teleport_player():
 	if player_ref and spawn_point:
 		player_ref.global_position = spawn_point.global_position
+	emit_signal("spawner_pemukiman")
 
 func _on_dialog_finished():
 	# Aktifkan kembali pergerakan player

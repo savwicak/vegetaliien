@@ -177,3 +177,50 @@ func handle_camera_shake(delta):
 		)
 	else:
 		camera.offset = Vector2.ZERO
+		
+
+@export var timeline_name: String = "tutorial"
+
+@onready var player = $"../Player"
+
+var waiting_for_move = false
+
+# ==================================================
+# START TUTORIAL
+# ==================================================
+func run_tutorial():
+	Dialogic.start(timeline_name)
+
+	if not Dialogic.signal_event.is_connected(_on_dialogic_signal):
+		Dialogic.signal_event.connect(_on_dialogic_signal)
+
+# ==================================================
+# SIGNAL DARI DIALOGIC
+# ==================================================
+func _on_dialogic_signal(argument: String):
+	print("SIGNAL:", argument)
+
+	if argument == "tunggu_gerak":
+		waiting_for_move = true
+		
+		# kasih kontrol ke player
+		player.set_physics_process(true)
+
+		# pause dialog
+		Dialogic.pause()
+
+# ==================================================
+# CEK PLAYER GERAK
+# ==================================================
+func _process(delta):
+	if waiting_for_move:
+		if player.velocity.length() > 0:
+			print("PLAYER UDAH GERAK!")
+
+			waiting_for_move = false
+
+			# matiin player lagi (biar lanjut dialog)
+			player.set_physics_process(false)
+
+			# lanjut dialog 🔥
+			Dialogic.resume()

@@ -1,17 +1,19 @@
 [gd_scene format=3 uid="uid://dl8nu0nu4bk8k"]
 
 [ext_resource type="Script" uid="uid://cakvnetkyha7p" path="res://scripts/player/EnergyPickup.gd" id="1_4fumb"]
-[ext_resource type="Texture2D" uid="uid://dvkrx4segalpw" path="res://assets/images/round.png" id="1_t1622"]
+[ext_resource type="Texture2D" uid="uid://teid7kbu8crq" path="res://assets/images/ui/Energy.svg" id="2_vgnsr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4fumb"]
 radius = 43.046486
 
 [node name="EnergyPickup" type="Area2D" unique_id=505689513]
+z_index = 20
 collision_layer = 4
 script = ExtResource("1_4fumb")
+stamina_amount = 25
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=891898619]
-texture = ExtResource("1_t1622")
+texture = ExtResource("2_vgnsr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1554258992]
 shape = SubResource("CircleShape2D_4fumb")

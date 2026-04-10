@@ -6,6 +6,8 @@
 [node name="EnergySpawner" type="Node2D" unique_id=83755230]
 script = ExtResource("1_wmb2s")
 energy_scene = ExtResource("2_6tx0n")
+spawn_interval = 2.0
+max_energy = 10
 
 [node name="Marker2D32" type="Marker2D" parent="." unique_id=512197036]
 position = Vector2(-840, -250)

@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://kc2yv0wj8x8u"]
 
 [ext_resource type="Script" uid="uid://cr8plbh4t0n2h" path="res://scripts/player/bullet.gd" id="1_2as5g"]
-[ext_resource type="Texture2D" uid="uid://ba42vma7xfy8t" path="res://assets/images/shoot.png" id="2_j5eos"]
+[ext_resource type="Texture2D" uid="uid://dn41av55adhay" path="res://assets/images/shot.svg" id="2_j5eos"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j5eos"]
 radius = 12.0415945
 
 [node name="Bullet" type="Area2D" unique_id=610122110]
+z_index = 30
 script = ExtResource("1_2as5g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1118155519]

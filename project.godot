@@ -22,12 +22,16 @@ Dialogic="*uid://ds2q0uclmolvu"
 [dialogic]
 
 directories/dch_directory={
+"carrot": "res://dialog/carrot.dch",
 "mashdoom": "res://dialog/mashdoom.dch",
+"narrator": "res://dialog/narrator.dch",
 "tomato": "res://dialog/tomato.dch"
 }
 directories/dtl_directory={
 "mashdoom": "res://dialog/mashdoom.dtl",
-"to_pemukiman": "res://dialog/to_pemukiman.dtl"
+"meet_carrot": "res://dialog/meet_carrot.dtl",
+"to_pemukiman": "res://dialog/to_pemukiman.dtl",
+"tutorial": "res://dialog/tutorial.dtl"
 }
 layout/style_directory={
 "": "res://dialog/dialogstyle.tres",

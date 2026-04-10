@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var target = $"../Player"
 
+var is_stunned = false
+
 # Knockback
 var knockback_velocity: Vector2 = Vector2.ZERO
 @export var knockback_friction := 80
@@ -23,13 +25,13 @@ func _physics_process(delta):
 	if target == null:
 		return
 
-	# Flip sprite berdasarkan arah gerak
+	# Flip sprite
 	if velocity.x != 0:
 		sprite.flip_h = velocity.x > 0
 
 	var direction = (target.global_position - global_position).normalized()
 
-	# Logika knockback
+	# Knockback tetap jalan
 	if knockback_velocity.length() > 10:
 		velocity = knockback_velocity
 	else:
@@ -37,7 +39,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-	# Reduksi knockback secara bertahap
+	# Reduksi knockback
 	knockback_velocity = knockback_velocity.move_toward(
 		Vector2.ZERO, knockback_friction * delta
 	)
@@ -52,8 +54,9 @@ func _on_damage_area_body_entered(body):
 # Efek knockback ketika terkena peluru
 func apply_knockback(from_position: Vector2, power: float):
 	var dir = (global_position - from_position).normalized()
-	knockback_velocity = dir * power
+	knockback_velocity = dir * power * 2
 	flash_red()
+	
 
 # Efek flash merah saat terkena damage
 func flash_red():

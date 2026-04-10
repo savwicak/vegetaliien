@@ -1,4 +1,4 @@
-Go to Pemukiman
+narrator: Go to Pemukiman
 - Yes
 	[signal arg="go_to_pemukiman"]
 - No
