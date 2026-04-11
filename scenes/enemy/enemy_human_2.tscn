@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://38jnj3415fyp"]
+[gd_scene load_steps=5 format=3 uid="uid://38jnj3415fyp"]
 
-[ext_resource type="Script" uid="uid://cir46dv18r72g" path="res://scripts/enemy/enemy-human.gd" id="1_tcmhl"]
+[ext_resource type="Script" path="res://scripts/enemy/enemy-human.gd" id="1_tcmhl"]
 [ext_resource type="Texture2D" uid="uid://b45mxjvsgnj57" path="res://assets/images/enemy-human2.svg" id="3_37qjk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tcmhl"]
@@ -11,22 +11,22 @@ height = 198.0
 radius = 37.0
 height = 112.0
 
-[node name="EnemyHuman2" type="CharacterBody2D" unique_id=1742479369]
+[node name="EnemyHuman2" type="CharacterBody2D"]
 script = ExtResource("1_tcmhl")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=244546796]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_37qjk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1213778041]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4.5, 15)
 shape = SubResource("CapsuleShape2D_tcmhl")
 
-[node name="DamageArea" type="Area2D" parent="." unique_id=609394412]
+[node name="DamageArea" type="Area2D" parent="."]
 position = Vector2(-10, 22)
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=917326179]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 position = Vector2(4, 43)
 shape = SubResource("CapsuleShape2D_37qjk")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1330585269]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

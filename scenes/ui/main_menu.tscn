@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://boufomgogs4bx"]
 
-[ext_resource type="Texture2D" uid="uid://bprhgmsauxaep" path="res://assets/images/ui/menu screen.png" id="1_m1kxf"]
-[ext_resource type="FontFile" uid="uid://dawt34xdwomdt" path="res://assets/fonts/Grow Year.otf" id="2_x2yvf"]
+[ext_resource type="Texture2D" uid="uid://cd8e7j56vdqfl" path="res://assets/images/ui/menu screen.png" id="1_m1kxf"]
+[ext_resource type="Script" uid="uid://dee7qtju0mx1q" path="res://scenes/ui/main_menu.gd" id="1_uhagc"]
+[ext_resource type="FontFile" uid="uid://bupgaokqo766v" path="res://assets/fonts/Grow Year.otf" id="2_x2yvf"]
 [ext_resource type="StyleBox" uid="uid://173lyfo68u12" path="res://dialog/button.tres" id="3_m1kxf"]
-[ext_resource type="Texture2D" uid="uid://cguii51f3dis2" path="res://assets/images/ui/Logo.png" id="4_uhagc"]
+[ext_resource type="Texture2D" uid="uid://bf1woe7ndux8w" path="res://assets/images/ui/Logo.png" id="4_uhagc"]
 [ext_resource type="StyleBox" uid="uid://dhmsdojmu12nu" path="res://scenes/ui/button.tres" id="4_x2yvf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btxxm"]
@@ -21,10 +22,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_uhagc")
 
 [node name="MenuScreen" type="Sprite2D" parent="." unique_id=413264032]
-position = Vector2(578.00006, 329)
-scale = Vector2(0.83867514, 0.83867526)
+position = Vector2(585, 327)
+scale = Vector2(0.7614743, 0.69230765)
 texture = ExtResource("1_m1kxf")
 
 [node name="Panel2" type="Panel" parent="." unique_id=497260749]
@@ -104,5 +106,9 @@ pivot_offset = Vector2(-74, -137)
 theme_override_styles/panel = SubResource("StyleBoxEmpty_wb0q5")
 
 [node name="Logo" type="Sprite2D" parent="Logos" unique_id=984520184]
-position = Vector2(275, 64)
+position = Vector2(305, 66)
 texture = ExtResource("4_uhagc")
+
+[connection signal="pressed" from="VBoxContainer/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/about_button" to="." method="_on_about_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/character_info_button" to="." method="_on_character_info_button_pressed"]
