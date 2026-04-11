@@ -1,28 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://3613yf71utir"]
+[gd_scene format=3 uid="uid://3613yf71utir"]
 
-[ext_resource type="Script" path="res://scenes/cutscene/rotten_tomato.gd" id="1_ptbvx"]
+[ext_resource type="Script" uid="uid://b6mllpl0e2sl7" path="res://scenes/cutscene/rotten_tomato.gd" id="1_ptbvx"]
 
-[node name="RottenTomato" type="Control"]
+[node name="RottenTomato" type="Control" unique_id=594507512]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ptbvx")
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1940890713]
 texture_filter = 3
-offset_left = 206.0
-offset_top = 109.0
-offset_right = 935.0
-offset_bottom = 608.0
+layout_mode = 0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 1147.0
+offset_bottom = 647.0
 expand = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(541, 376)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=880668921]
+position = Vector2(577, 324)
 
-[node name="Button" type="Button" parent="."]
-offset_left = 665.0
-offset_top = 494.0
-offset_right = 906.0
-offset_bottom = 569.0
+[node name="Button" type="Button" parent="." unique_id=1808990506]
+layout_mode = 0
+offset_left = 961.0
+offset_top = 590.0
+offset_right = 1131.0
+offset_bottom = 633.0
 text = "Skip button"
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

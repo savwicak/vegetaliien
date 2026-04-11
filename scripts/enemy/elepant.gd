@@ -2,13 +2,15 @@ extends CharacterBody2D
 
 # --- CONFIGURATION ---
 @export var speed: float = 100
-@export var health: int = 6
+@export var max_health: int = 10
 @export var knockback_power: float = 150.0
 @export var knockback_friction: float = 80.0
 
 # --- STATE ---
+var current_health: int
 var player_near: bool = false
 var is_active: bool = false
+var is_dead: bool = false
 var knockback_velocity: Vector2 = Vector2.ZERO
 
 # --- NODE REFERENCES ---
@@ -16,12 +18,14 @@ var knockback_velocity: Vector2 = Vector2.ZERO
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var interact_area: Area2D = $Area2D
 @onready var damage_area: Area2D = get_node_or_null("DamageArea")
-@onready var hitbox: Area2D = get_node_or_null("Hitbox")
 @onready var label: Label = $Label
+@onready var health_bar: TextureProgressBar = $HealthBar
 
 func _ready():
 	add_to_group("enemies")
-
+	current_health = max_health
+	update_health_bar()
+	health_bar.visible = false
 	# Validasi player
 	if player == null:
 		push_warning("Player tidak ditemukan di group 'player'.")
@@ -32,37 +36,44 @@ func _ready():
 		interact_area.body_exited.connect(_on_body_exited)
 	label.visible = false
 
-	# Damage area signal
+	# Damage ke player
 	if damage_area:
 		damage_area.body_entered.connect(_on_damage_area_body_entered)
-	else:
-		push_error("DamageArea tidak ditemukan!")
 
-	# Hitbox signal (untuk menerima damage dari peluru)
-	if hitbox:
-		hitbox.body_entered.connect(_on_hitbox_body_entered)
+	# Dialogic signal untuk memulai pengejaran
+	var dialogic = get_node_or_null("/root/Dialogic")
+	if dialogic and not dialogic.signal_event.is_connected(_on_dialog_signal):
+		dialogic.signal_event.connect(_on_dialog_signal)
 
-	# Dialogic signal
-	if Dialogic and not Dialogic.signal_event.is_connected(_on_dialog_signal):
-		Dialogic.signal_event.connect(_on_dialog_signal)
+# ==========================================================
+# UPDATE HEALTH BAR
+# ==========================================================
+func update_health_bar():
+	if health_bar:
+		health_bar.max_value = max_health
+		health_bar.value = current_health
 
-# --- DIALOG ACTIVATION ---
+# ==========================================================
+# SIGNAL DARI DIALOGIC UNTUK MEMULAI CHASING
+# ==========================================================
 func _on_dialog_signal(arg: String):
 	if arg == "start_enemy":
 		is_active = true
 		label.visible = false
-
-		# Hapus area interaksi agar tidak bisa dialog lagi
+		health_bar.visible = true
 		if interact_area:
 			interact_area.queue_free()
 
-# --- INTERACTION ---
+# ==========================================================
+# INTERACTION
+# ==========================================================
 func _process(delta):
 	if player_near and not is_active and Input.is_action_just_pressed("interact"):
 		start_dialog()
 
 func start_dialog():
-	Dialogic.start("elepant")
+	if Dialogic:
+		Dialogic.start("elepant")
 
 func _on_body_entered(body):
 	if body.is_in_group("player") and not is_active:
@@ -74,16 +85,18 @@ func _on_body_exited(body):
 		player_near = false
 		label.visible = false
 
-# --- MOVEMENT & CHASING ---
+# ==========================================================
+# MOVEMENT & CHASING
+# ==========================================================
 func _physics_process(delta):
-	if not is_active or player == null:
+	if not is_active or player == null or is_dead:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
 
 	var direction = (player.global_position - global_position).normalized()
 
-	# Handle knockback
+	# Prioritaskan knockback
 	if knockback_velocity.length() > 10:
 		velocity = knockback_velocity
 	else:
@@ -95,41 +108,53 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-	# Reduce knockback over time
+	# Reduksi knockback
 	knockback_velocity = knockback_velocity.move_toward(
 		Vector2.ZERO, knockback_friction * delta
 	)
 
-# --- DAMAGE TO PLAYER ---
+# ==========================================================
+# DAMAGE KE PLAYER
+# ==========================================================
 func _on_damage_area_body_entered(body):
 	if body.is_in_group("player") and body.has_method("take_damage"):
 		body.take_damage(global_position)
 
-# --- DAMAGE FROM BULLETS ---
-func _on_hitbox_body_entered(body):
-	if body.is_in_group("bullet"):
-		take_damage()
-		flash_red()
-		apply_knockback(body.global_position, knockback_power)
-		body.queue_free()
+# ==========================================================
+# DAMAGE DARI BULLET (SESUAI DENGAN SCRIPT BULLET)
+# ==========================================================
+func take_damage(from_position: Vector2, power: float):
+	if is_dead:
+		return
 
-func take_damage():
-	health -= 1
-	print("Elepant HP:", health)
+	current_health -= 1
+	update_health_bar()
+	print("Elepant HP:", current_health)
 
-	if health <= 0:
+	apply_knockback(from_position, power)
+	await flash_red()
+
+	if current_health <= 0:
 		die()
 
-func die():
-	queue_free()
-
-# --- KNOCKBACK EFFECT ---
+# ==========================================================
+# KNOCKBACK
+# ==========================================================
 func apply_knockback(from_position: Vector2, power: float):
 	var dir = (global_position - from_position).normalized()
 	knockback_velocity = dir * power
 
-# --- VISUAL FEEDBACK ---
+# ==========================================================
+# VISUAL FEEDBACK
+# ==========================================================
 func flash_red():
 	sprite.modulate = Color(1, 0.2, 0.2)
 	await get_tree().create_timer(0.1).timeout
 	sprite.modulate = Color(1, 1, 1)
+
+# ==========================================================
+# ENEMY MATI
+# ==========================================================
+func die():
+	is_dead = true
+	queue_free()

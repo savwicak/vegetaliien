@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://boufomgogs4bx"]
 
-[ext_resource type="Texture2D" uid="uid://cd8e7j56vdqfl" path="res://assets/images/ui/menu screen.png" id="1_m1kxf"]
-[ext_resource type="Script" uid="uid://dee7qtju0mx1q" path="res://scenes/ui/main_menu.gd" id="1_uhagc"]
-[ext_resource type="FontFile" uid="uid://bupgaokqo766v" path="res://assets/fonts/Grow Year.otf" id="2_x2yvf"]
+[ext_resource type="Texture2D" uid="uid://bprhgmsauxaep" path="res://assets/images/ui/menu screen.png" id="1_m1kxf"]
+[ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_uhagc"]
+[ext_resource type="FontFile" uid="uid://dawt34xdwomdt" path="res://assets/fonts/Grow Year.otf" id="2_x2yvf"]
 [ext_resource type="StyleBox" uid="uid://173lyfo68u12" path="res://dialog/button.tres" id="3_m1kxf"]
-[ext_resource type="Texture2D" uid="uid://bf1woe7ndux8w" path="res://assets/images/ui/Logo.png" id="4_uhagc"]
+[ext_resource type="Texture2D" uid="uid://cguii51f3dis2" path="res://assets/images/ui/Logo.png" id="4_uhagc"]
 [ext_resource type="StyleBox" uid="uid://dhmsdojmu12nu" path="res://scenes/ui/button.tres" id="4_x2yvf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btxxm"]
@@ -25,8 +25,8 @@ grow_vertical = 2
 script = ExtResource("1_uhagc")
 
 [node name="MenuScreen" type="Sprite2D" parent="." unique_id=413264032]
-position = Vector2(585, 327)
-scale = Vector2(0.7614743, 0.69230765)
+position = Vector2(576.00006, 326.5)
+scale = Vector2(0.798331, 0.69123936)
 texture = ExtResource("1_m1kxf")
 
 [node name="Panel2" type="Panel" parent="." unique_id=497260749]
@@ -67,7 +67,9 @@ theme_override_colors/font_color = Color(0.5647059, 0.38431373, 0.3647059, 1)
 theme_override_fonts/font = ExtResource("2_x2yvf")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("3_m1kxf")
+theme_override_styles/pressed = ExtResource("4_x2yvf")
 theme_override_styles/hover = ExtResource("4_x2yvf")
+theme_override_styles/hover_pressed = ExtResource("4_x2yvf")
 text = "Play"
 expand_icon = true
 
@@ -77,7 +79,9 @@ theme_override_colors/font_color = Color(0.5647059, 0.38431373, 0.3647059, 1)
 theme_override_fonts/font = ExtResource("2_x2yvf")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("3_m1kxf")
+theme_override_styles/pressed = ExtResource("4_x2yvf")
 theme_override_styles/hover = ExtResource("4_x2yvf")
+theme_override_styles/hover_pressed = ExtResource("4_x2yvf")
 text = "About"
 
 [node name="character_info_button" type="Button" parent="VBoxContainer" unique_id=1836613131]
@@ -86,7 +90,9 @@ theme_override_colors/font_color = Color(0.5647059, 0.38431373, 0.3647059, 1)
 theme_override_fonts/font = ExtResource("2_x2yvf")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("3_m1kxf")
+theme_override_styles/pressed = ExtResource("4_x2yvf")
 theme_override_styles/hover = ExtResource("4_x2yvf")
+theme_override_styles/hover_pressed = ExtResource("4_x2yvf")
 text = "Character Info"
 
 [node name="Logos" type="Panel" parent="." unique_id=1471911067]

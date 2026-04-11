@@ -43,8 +43,6 @@ func spawn_energy():
 	energy.global_position = point.global_position
 	get_tree().current_scene.add_child(energy)
 
-	print("Energy spawn di:", point.global_position)
-
 
 func _on_to_pemukiman_spawner_pemukiman() -> void:
 	pass # Replace with function body.

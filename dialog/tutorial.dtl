@@ -1,6 +1,6 @@
 narrator: Hi, Welcome to Earth!
 narrator: Let me tell you something!
-narrator: Press W A S D to move (click the anywhere if done)
+narrator: Press W A S D to move
 [wait time="1.0"]
 
 narrator: Nice! now you can collect some energy
@@ -10,12 +10,10 @@ narrator: Look around for energy!
 narrator: If stamina is full you can shoot a Virus
 [wait time="1.0"]
 
-narrator: Oh no! there's an enemy!
-narrator: Shoot it before it gets too close!
+narrator: Left click to shoot
+[signal arg="tutorial_end"]
 [wait time="1.0"]
+narrator: I feel like something chasing me, They're must be really hungry
+tomato: WHAT!!! NO!!! I DONT WANNA BE EATEN!!
 
-narrator: Aim carefully and attack!
-[wait time="2.0"]
-
-narrator: Great job!
-narrator: Keep going and survive!
+tomato: I NEED TO SHOOT THEM!

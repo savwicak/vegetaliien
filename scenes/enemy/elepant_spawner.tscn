@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://codnh8qcqjqfk"]
 
+[ext_resource type="Script" uid="uid://bljj8njnlju3e" path="res://scripts/player/energy_spawner.gd" id="1_vj1kx"]
+[ext_resource type="PackedScene" uid="uid://dl8nu0nu4bk8k" path="res://scenes/player/EnergyPickup.tscn" id="2_5s3tn"]
+
 [node name="elepant spawner" type="Node2D" unique_id=2098384156]
+script = ExtResource("1_vj1kx")
+energy_scene = ExtResource("2_5s3tn")
+spawn_interval = 1.0
+max_energy = 8
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=169863738]
 position = Vector2(105, 450)
