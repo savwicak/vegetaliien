@@ -482,7 +482,7 @@ max_energy = 30
 
 [node name="Player" parent="." unique_id=2078378948 instance=ExtResource("2_0wfyh")]
 z_index = 30
-position = Vector2(372, 572)
+position = Vector2(1577, 2474)
 
 [node name="EnemyHuman" parent="." unique_id=520596125 instance=ExtResource("3_sugp2")]
 z_index = 30

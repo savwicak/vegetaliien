@@ -26,30 +26,32 @@ var cutscene_played: bool = false
 
 
 func _ready():
+	# Jika gajah sudah dikalahkan sebelumnya, langsung hapus dari scene
+	if EventBus and EventBus.elephant_defeated:
+		print("🐘 Elephant already defeated, removing from scene.")
+		queue_free()
+		return
+
 	add_to_group("enemies")
 	current_health = max_health
 	update_health_bar()
 	health_bar.visible = false
 
-	# Validasi player
 	if player == null:
 		push_warning("Player tidak ditemukan di group 'player'.")
 
-	# Interaction signals
 	if interact_area:
 		interact_area.body_entered.connect(_on_body_entered)
 		interact_area.body_exited.connect(_on_body_exited)
+
 	label.visible = false
 
-	# Damage ke player
 	if damage_area:
 		damage_area.body_entered.connect(_on_damage_area_body_entered)
 
-	# Dialogic signal untuk memulai pengejaran
 	var dialogic = get_node_or_null("/root/Dialogic")
 	if dialogic and not dialogic.signal_event.is_connected(_on_dialog_signal):
 		dialogic.signal_event.connect(_on_dialog_signal)
-
 
 # ==========================================================
 # UPDATE HEALTH BAR
@@ -182,12 +184,15 @@ func die():
 
 	print("☠️ ELEPHANT MATI")
 
+	# Tandai bahwa gajah telah dikalahkan
+	if EventBus:
+		EventBus.finish_elephant_fight()
+
 	if not cutscene_played:
 		cutscene_played = true
 		start_cutscene()
 	else:
 		queue_free()
-
 
 # ==========================================================
 # CUTSCENE SYSTEM (ADDED)

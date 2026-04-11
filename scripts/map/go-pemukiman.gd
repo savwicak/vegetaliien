@@ -7,7 +7,7 @@ signal spawner_pemukiman
 
 var player_ref: Node2D = null
 var dialog_started := false
-var can_interact := true  # Langsung bisa digunakan (ubah jika ingin dikunci)
+var can_interact := false  # 🔥 Dikunci di awal
 
 var spawn_point: Marker2D
 
@@ -26,6 +26,13 @@ func _ready():
 	# Hubungkan sinyal body_entered
 	body_entered.connect(_on_body_entered)
 
+	# 🔥 Cek apakah fight gajah sudah selesai
+	if EventBus:
+		can_interact = EventBus.elephant_defeated
+
+		if not EventBus.elephant_fight_finished.is_connected(_on_elephant_fight_finished):
+			EventBus.elephant_fight_finished.connect(_on_elephant_fight_finished)
+
 	# Dialogic signals
 	if Dialogic:
 		if not Dialogic.signal_event.is_connected(_on_dialogic_signal):
@@ -36,17 +43,35 @@ func _ready():
 # AREA ENTER
 # ==========================================================
 func _on_body_entered(body):
-	if body.is_in_group("player") and not dialog_started and can_interact:
-		dialog_started = true
-		player_ref = body
+	if not body.is_in_group("player"):
+		return
 
-		print("✅ PLAYER ENTER + INTERACT OK")
+	# 🔒 Jika fight belum selesai, tolak akses
+	if not can_interact:
+		print("🚫 Pemukiman masih terkunci! Selesaikan fight dengan gajah terlebih dahulu.")
+		return
 
-		# Nonaktifkan pergerakan player sementara
-		if player_ref.has_method("set_physics_process"):
-			player_ref.set_physics_process(false)
+	if dialog_started:
+		return
 
-		start_dialog()
+	dialog_started = true
+	player_ref = body
+
+	print("✅ PLAYER ENTER + INTERACT OK")
+
+	# Nonaktifkan pergerakan player sementara
+	if player_ref.has_method("set_physics_process"):
+		player_ref.set_physics_process(false)
+
+	start_dialog()
+
+
+# ==========================================================
+# EVENT: FIGHT GAJAH SELESAI
+# ==========================================================
+func _on_elephant_fight_finished():
+	can_interact = true
+	print("🔓 Pemukiman sekarang bisa diakses!")
 
 
 # ==========================================================
@@ -79,10 +104,6 @@ func _on_dialogic_signal(argument: String):
 	print("📡 DIALOG SIGNAL:", argument)
 
 	match argument:
-		"pemukiman_open":
-			can_interact = true
-			print("🔓 INTERACT UNLOCKED!")
-
 		"go_to_pemukiman":
 			teleport_player()
 
