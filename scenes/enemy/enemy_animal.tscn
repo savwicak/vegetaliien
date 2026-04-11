@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3h4ybu0ex873"]
+
+[ext_resource type="Script" path="res://scenes/enemy/enemy_animal.gd" id="1_afss8"]
+[ext_resource type="Texture2D" uid="uid://3lwmr2261ljr" path="res://scenes/enemy hedgedog.png" id="1_ub682"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2gcaf"]
+radius = 45.3982
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_31n5c"]
+radius = 45.0111
+
+[node name="EnemyAnimal" type="CharacterBody2D"]
+z_index = 10
+script = ExtResource("1_afss8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ub682")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_2gcaf")
+
+[node name="DamageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_31n5c")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
